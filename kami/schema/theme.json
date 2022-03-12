@@ -1,0 +1,401 @@
+{
+  "$ref": "#/definitions/KamiConfig",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "KamiConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "function": {
+          "additionalProperties": false,
+          "properties": {
+            "analyze": {
+              "additionalProperties": false,
+              "properties": {
+                "baidu": {
+                  "type": "string"
+                },
+                "enable": {
+                  "type": "boolean"
+                },
+                "ga": {
+                  "type": "string"
+                },
+                "umami": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "url",
+                    "id"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "enable",
+                "ga",
+                "baidu",
+                "umami"
+              ],
+              "type": "object"
+            },
+            "banDevtool": {
+              "additionalProperties": false,
+              "properties": {
+                "enable": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "enable"
+              ],
+              "type": "object"
+            },
+            "donate": {
+              "additionalProperties": false,
+              "properties": {
+                "enable": {
+                  "type": "boolean"
+                },
+                "link": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "enable",
+                "link"
+              ],
+              "type": "object"
+            },
+            "player": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "analyze",
+            "donate",
+            "player",
+            "banDevtool"
+          ],
+          "type": "object"
+        },
+        "name": {
+          "type": "string"
+        },
+        "site": {
+          "additionalProperties": false,
+          "properties": {
+            "background": {
+              "additionalProperties": false,
+              "properties": {
+                "position": {
+                  "type": "string"
+                },
+                "src": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "dark": {
+                      "type": "string"
+                    },
+                    "light": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "light",
+                    "dark"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "src",
+                "position"
+              ],
+              "type": "object"
+            },
+            "custom": {
+              "additionalProperties": false,
+              "properties": {
+                "css": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "js": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "script": {
+                  "type": "string"
+                },
+                "style": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "favicon": {
+              "type": "string"
+            },
+            "figure": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "footer": {
+              "additionalProperties": false,
+              "properties": {
+                "background": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "position": {
+                      "type": "string"
+                    },
+                    "src": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "dark": {
+                          "type": "string"
+                        },
+                        "light": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "light",
+                        "dark"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "src",
+                    "position"
+                  ],
+                  "type": "object"
+                },
+                "homePage": {
+                  "type": "string"
+                },
+                "icp": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "enable": {
+                      "type": "boolean"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "link": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "enable",
+                    "label",
+                    "link"
+                  ],
+                  "type": "object"
+                },
+                "motto": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "author": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "content",
+                    "author"
+                  ],
+                  "type": "object"
+                },
+                "navigation": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "newtab": {
+                        "type": "boolean"
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "path"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "homePage",
+                "motto",
+                "icp",
+                "background",
+                "navigation"
+              ],
+              "type": "object"
+            },
+            "header": {
+              "additionalProperties": false,
+              "properties": {
+                "menu": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "icon": {
+                        "type": "string"
+                      },
+                      "path": {
+                        "type": "string"
+                      },
+                      "subMenu": {
+                        "items": {
+                          "$ref": "#/definitions/interface-types_config.ts-1081-1182-types_config.ts-0-1266"
+                        },
+                        "type": "array"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "path",
+                      "icon"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "menu"
+              ],
+              "type": "object"
+            },
+            "logoSvg": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "social": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "url",
+                  "title",
+                  "icon",
+                  "color"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "favicon",
+            "header",
+            "social",
+            "footer",
+            "custom",
+            "background"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "name",
+        "site",
+        "function"
+      ],
+      "type": "object"
+    },
+    "interface-types_config.ts-1081-1182-types_config.ts-0-1266": {
+      "additionalProperties": false,
+      "properties": {
+        "icon": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "subMenu": {
+          "items": {
+            "$ref": "#/definitions/interface-types_config.ts-1081-1182-types_config.ts-0-1266"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "path",
+        "icon"
+      ],
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "kami",
+  "dependencies": {
+    "@mx-space/extra": "latest"
+  }
+}
