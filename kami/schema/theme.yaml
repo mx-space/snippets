@@ -316,7 +316,7 @@ properties:
                                       type: object
                                   type:
                                     type: string
-                              homePage:
+                              home_page:
                                 type: object
                                 properties:
                                   type:
@@ -477,7 +477,7 @@ properties:
                               type: object
                           type:
                             type: string
-                      logoSvg:
+                      logo_svg:
                         type: object
                         properties:
                           type:

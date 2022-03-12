@@ -184,7 +184,7 @@
                   "required": [],
                   "type": "object"
                 },
-                "homePage": {
+                "home_page": {
                   "type": "string"
                 },
                 "icp": {
@@ -285,7 +285,7 @@
               "required": [],
               "type": "object"
             },
-            "logoSvg": {
+            "logo_svg": {
               "type": [
                 "string",
                 "null"
