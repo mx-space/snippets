@@ -1,0 +1,581 @@
+type: object
+properties:
+  $ref:
+    type: string
+  $schema:
+    type: string
+  definitions:
+    type: object
+    properties:
+      KamiConfig:
+        type: object
+        properties:
+          additionalProperties:
+            type: boolean
+          properties:
+            type: object
+            properties:
+              function:
+                type: object
+                properties:
+                  additionalProperties:
+                    type: boolean
+                  properties:
+                    type: object
+                    properties:
+                      analyze:
+                        type: object
+                        properties:
+                          additionalProperties:
+                            type: boolean
+                          properties:
+                            type: object
+                            properties:
+                              baidu:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                              enable:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                              ga:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                              umami:
+                                type: object
+                                properties:
+                                  additionalProperties:
+                                    type: boolean
+                                  properties:
+                                    type: object
+                                    properties:
+                                      id:
+                                        type: object
+                                        properties:
+                                          type:
+                                            type: string
+                                      url:
+                                        type: object
+                                        properties:
+                                          type:
+                                            type: string
+                                  required:
+                                    type: array
+                                    items:
+                                      type: string
+                                  type:
+                                    type: string
+                          required:
+                            type: array
+                            items:
+                              type: string
+                          type:
+                            type: string
+                      banDevtool:
+                        type: object
+                        properties:
+                          additionalProperties:
+                            type: boolean
+                          properties:
+                            type: object
+                            properties:
+                              enable:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                          required:
+                            type: array
+                            items:
+                              type: string
+                          type:
+                            type: string
+                      donate:
+                        type: object
+                        properties:
+                          additionalProperties:
+                            type: boolean
+                          properties:
+                            type: object
+                            properties:
+                              enable:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                              link:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                          required:
+                            type: array
+                            items:
+                              type: string
+                          type:
+                            type: string
+                      player:
+                        type: object
+                        properties:
+                          additionalProperties:
+                            type: boolean
+                          properties:
+                            type: object
+                            properties:
+                              id:
+                                type: object
+                                properties:
+                                  items:
+                                    type: object
+                                    properties:
+                                      type:
+                                        type: string
+                                  type:
+                                    type: string
+                          required:
+                            type: array
+                            items:
+                              type: string
+                          type:
+                            type: string
+                  required:
+                    type: array
+                    items:
+                      type: object
+                  type:
+                    type: string
+              name:
+                type: object
+                properties:
+                  type:
+                    type: string
+              site:
+                type: object
+                properties:
+                  additionalProperties:
+                    type: boolean
+                  properties:
+                    type: object
+                    properties:
+                      background:
+                        type: object
+                        properties:
+                          additionalProperties:
+                            type: boolean
+                          properties:
+                            type: object
+                            properties:
+                              position:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                              src:
+                                type: object
+                                properties:
+                                  additionalProperties:
+                                    type: boolean
+                                  properties:
+                                    type: object
+                                    properties:
+                                      dark:
+                                        type: object
+                                        properties:
+                                          type:
+                                            type: string
+                                      light:
+                                        type: object
+                                        properties:
+                                          type:
+                                            type: string
+                                  required:
+                                    type: array
+                                    items:
+                                      type: object
+                                  type:
+                                    type: string
+                          required:
+                            type: array
+                            items:
+                              type: object
+                          type:
+                            type: string
+                      custom:
+                        type: object
+                        properties:
+                          additionalProperties:
+                            type: boolean
+                          properties:
+                            type: object
+                            properties:
+                              css:
+                                type: object
+                                properties:
+                                  items:
+                                    type: object
+                                    properties:
+                                      type:
+                                        type: string
+                                  type:
+                                    type: string
+                              js:
+                                type: object
+                                properties:
+                                  items:
+                                    type: object
+                                    properties:
+                                      type:
+                                        type: string
+                                  type:
+                                    type: string
+                              script:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                              style:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                          type:
+                            type: string
+                      favicon:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                      figure:
+                        type: object
+                        properties:
+                          anyOf:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                items:
+                                  type: object
+                                  properties:
+                                    type:
+                                      type: string
+                                type:
+                                  type: string
+                      footer:
+                        type: object
+                        properties:
+                          additionalProperties:
+                            type: boolean
+                          properties:
+                            type: object
+                            properties:
+                              background:
+                                type: object
+                                properties:
+                                  additionalProperties:
+                                    type: boolean
+                                  properties:
+                                    type: object
+                                    properties:
+                                      position:
+                                        type: object
+                                        properties:
+                                          type:
+                                            type: string
+                                      src:
+                                        type: object
+                                        properties:
+                                          additionalProperties:
+                                            type: boolean
+                                          properties:
+                                            type: object
+                                            properties:
+                                              dark:
+                                                type: object
+                                                properties:
+                                                  type:
+                                                    type: string
+                                              light:
+                                                type: object
+                                                properties:
+                                                  type:
+                                                    type: string
+                                          required:
+                                            type: array
+                                            items:
+                                              type: object
+                                          type:
+                                            type: string
+                                  required:
+                                    type: array
+                                    items:
+                                      type: object
+                                  type:
+                                    type: string
+                              homePage:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                              icp:
+                                type: object
+                                properties:
+                                  additionalProperties:
+                                    type: boolean
+                                  properties:
+                                    type: object
+                                    properties:
+                                      enable:
+                                        type: object
+                                        properties:
+                                          type:
+                                            type: string
+                                      label:
+                                        type: object
+                                        properties:
+                                          type:
+                                            type: string
+                                      link:
+                                        type: object
+                                        properties:
+                                          type:
+                                            type: string
+                                  required:
+                                    type: array
+                                    items:
+                                      type: string
+                                  type:
+                                    type: string
+                              motto:
+                                type: object
+                                properties:
+                                  additionalProperties:
+                                    type: boolean
+                                  properties:
+                                    type: object
+                                    properties:
+                                      author:
+                                        type: object
+                                        properties:
+                                          type:
+                                            type: string
+                                      content:
+                                        type: object
+                                        properties:
+                                          type:
+                                            type: string
+                                  required:
+                                    type: array
+                                    items:
+                                      type: object
+                                  type:
+                                    type: string
+                              navigation:
+                                type: object
+                                properties:
+                                  items:
+                                    type: object
+                                    properties:
+                                      additionalProperties:
+                                        type: boolean
+                                      properties:
+                                        type: object
+                                        properties:
+                                          name:
+                                            type: object
+                                            properties:
+                                              type:
+                                                type: string
+                                          newtab:
+                                            type: object
+                                            properties:
+                                              type:
+                                                type: string
+                                          path:
+                                            type: object
+                                            properties:
+                                              type:
+                                                type: string
+                                      required:
+                                        type: array
+                                        items:
+                                          type: string
+                                      type:
+                                        type: string
+                                  type:
+                                    type: string
+                          required:
+                            type: array
+                            items:
+                              type: object
+                          type:
+                            type: string
+                      header:
+                        type: object
+                        properties:
+                          additionalProperties:
+                            type: boolean
+                          properties:
+                            type: object
+                            properties:
+                              menu:
+                                type: object
+                                properties:
+                                  items:
+                                    type: object
+                                    properties:
+                                      additionalProperties:
+                                        type: boolean
+                                      properties:
+                                        type: object
+                                        properties:
+                                          icon:
+                                            type: object
+                                            properties:
+                                              type:
+                                                type: string
+                                          path:
+                                            type: object
+                                            properties:
+                                              type:
+                                                type: string
+                                          subMenu:
+                                            type: object
+                                            properties:
+                                              items:
+                                                type: object
+                                                properties:
+                                                  $ref:
+                                                    type: string
+                                              type:
+                                                type: string
+                                          title:
+                                            type: object
+                                            properties:
+                                              type:
+                                                type: string
+                                          type:
+                                            type: object
+                                            properties:
+                                              type:
+                                                type: string
+                                      required:
+                                        type: array
+                                        items:
+                                          type: string
+                                      type:
+                                        type: string
+                                  type:
+                                    type: string
+                          required:
+                            type: array
+                            items:
+                              type: object
+                          type:
+                            type: string
+                      logoSvg:
+                        type: object
+                        properties:
+                          type:
+                            type: array
+                            items:
+                              type: string
+                      social:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              additionalProperties:
+                                type: boolean
+                              properties:
+                                type: object
+                                properties:
+                                  color:
+                                    type: object
+                                    properties:
+                                      type:
+                                        type: string
+                                  icon:
+                                    type: object
+                                    properties:
+                                      type:
+                                        type: string
+                                  title:
+                                    type: object
+                                    properties:
+                                      type:
+                                        type: string
+                                  url:
+                                    type: object
+                                    properties:
+                                      type:
+                                        type: string
+                              required:
+                                type: array
+                                items:
+                                  type: string
+                              type:
+                                type: string
+                          type:
+                            type: string
+                  required:
+                    type: array
+                    items:
+                      type: object
+                  type:
+                    type: string
+          required:
+            type: array
+            items:
+              type: object
+          type:
+            type: string
+      interface-types_config.ts-1081-1182-types_config.ts-0-1266:
+        type: object
+        properties:
+          additionalProperties:
+            type: boolean
+          properties:
+            type: object
+            properties:
+              icon:
+                type: object
+                properties:
+                  type:
+                    type: string
+              path:
+                type: object
+                properties:
+                  type:
+                    type: string
+              subMenu:
+                type: object
+                properties:
+                  items:
+                    type: object
+                    properties:
+                      $ref:
+                        type: string
+                  type:
+                    type: string
+              title:
+                type: object
+                properties:
+                  type:
+                    type: string
+              type:
+                type: object
+                properties:
+                  type:
+                    type: string
+          required:
+            type: array
+            items:
+              type: string
+          type:
+            type: string

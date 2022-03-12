@@ -38,10 +38,7 @@
                 }
               },
               "required": [
-                "enable",
-                "ga",
-                "baidu",
-                "umami"
+                "enable"
               ],
               "type": "object"
             },
@@ -89,12 +86,7 @@
               "type": "object"
             }
           },
-          "required": [
-            "analyze",
-            "donate",
-            "player",
-            "banDevtool"
-          ],
+          "required": [],
           "type": "object"
         },
         "name": {
@@ -119,17 +111,11 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "light",
-                    "dark"
-                  ],
+                  "required": [],
                   "type": "object"
                 }
               },
-              "required": [
-                "src",
-                "position"
-              ],
+              "required": [],
               "type": "object"
             },
             "custom": {
@@ -191,17 +177,11 @@
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "light",
-                        "dark"
-                      ],
+                      "required": [],
                       "type": "object"
                     }
                   },
-                  "required": [
-                    "src",
-                    "position"
-                  ],
+                  "required": [],
                   "type": "object"
                 },
                 "homePage": {
@@ -237,10 +217,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "content",
-                    "author"
-                  ],
+                  "required": [],
                   "type": "object"
                 },
                 "navigation": {
@@ -266,13 +243,7 @@
                   "type": "array"
                 }
               },
-              "required": [
-                "homePage",
-                "motto",
-                "icp",
-                "background",
-                "navigation"
-              ],
+              "required": [],
               "type": "object"
             },
             "header": {
@@ -311,9 +282,7 @@
                   "type": "array"
                 }
               },
-              "required": [
-                "menu"
-              ],
+              "required": [],
               "type": "object"
             },
             "logoSvg": {
@@ -350,22 +319,11 @@
               "type": "array"
             }
           },
-          "required": [
-            "favicon",
-            "header",
-            "social",
-            "footer",
-            "custom",
-            "background"
-          ],
+          "required": [],
           "type": "object"
         }
       },
-      "required": [
-        "name",
-        "site",
-        "function"
-      ],
+      "required": [],
       "type": "object"
     },
     "interface-types_config.ts-1081-1182-types_config.ts-0-1266": {
