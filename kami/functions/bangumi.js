@@ -6,6 +6,6 @@ async function handler() {
   const bangumi = await client.getFavoriteBangumi(parseInt(len))
   return bangumi
 }
-
+// 如果社交平台 ID 录入中有哔哩哔哩 ID 可不填，留空
 const uid = 26578164
 const len = 10
