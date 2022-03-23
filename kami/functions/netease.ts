@@ -1,5 +1,6 @@
-async function handler(ctx, require) {
-  const extra = await require('@mx-space/extra')
+import extra from '@mx-space/extra'
+
+async function handler() {
   const { NeteaseMusic } = extra
 
   const client = new NeteaseMusic(phone, password)

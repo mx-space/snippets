@@ -1,7 +1,8 @@
-async function handler(ctx, require) {
-  const { NeteaseCloudMusicApi } = await require('@mx-space/extra')
+import { NeteaseCloudMusicApi } from '@mx-space/extra'
+
+async function handler() {
   const { song_url } = NeteaseCloudMusicApi
-  const id = ctx.req.query.id
+  const id = context.req.query.id
   if (!id) {
     return { message: 'id must be not empty stringnumber' }
   }
