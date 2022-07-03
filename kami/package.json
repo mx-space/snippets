@@ -1,6 +1,6 @@
 {
   "name": "kami",
   "dependencies": {
-    "@mx-space/extra": "0.5.5"
+    "@mx-space/extra": "0.5.6"
   }
 }
