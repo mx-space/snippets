@@ -1,0 +1,3 @@
+async function handler() {
+  return ''
+}
