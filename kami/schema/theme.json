@@ -23,7 +23,13 @@
                 "umami": {
                   "additionalProperties": false,
                   "properties": {
+                    "endpoint": {
+                      "type": "string"
+                    },
                     "id": {
+                      "type": "string"
+                    },
+                    "jsname": {
                       "type": "string"
                     },
                     "url": {
@@ -32,13 +38,17 @@
                   },
                   "required": [
                     "url",
-                    "id"
+                    "id",
+                    "jsname"
                   ],
                   "type": "object"
                 }
               },
               "required": [
-                "enable"
+                "enable",
+                "ga",
+                "baidu",
+                "umami"
               ],
               "type": "object"
             },
@@ -62,11 +72,18 @@
                 },
                 "link": {
                   "type": "string"
+                },
+                "qrcode": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
                 }
               },
               "required": [
                 "enable",
-                "link"
+                "link",
+                "qrcode"
               ],
               "type": "object"
             },
@@ -86,7 +103,12 @@
               "type": "object"
             }
           },
-          "required": [],
+          "required": [
+            "analyze",
+            "donate",
+            "player",
+            "banDevtool"
+          ],
           "type": "object"
         },
         "name": {
@@ -111,11 +133,17 @@
                       "type": "string"
                     }
                   },
-                  "required": [],
+                  "required": [
+                    "light",
+                    "dark"
+                  ],
                   "type": "object"
                 }
               },
-              "required": [],
+              "required": [
+                "src",
+                "position"
+              ],
               "type": "object"
             },
             "custom": {
@@ -146,17 +174,10 @@
               "type": "string"
             },
             "figure": {
-              "anyOf": [
-                {
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
             },
             "footer": {
               "additionalProperties": false,
@@ -177,14 +198,20 @@
                           "type": "string"
                         }
                       },
-                      "required": [],
+                      "required": [
+                        "light",
+                        "dark"
+                      ],
                       "type": "object"
                     }
                   },
-                  "required": [],
+                  "required": [
+                    "src",
+                    "position"
+                  ],
                   "type": "object"
                 },
-                "home_page": {
+                "homePage": {
                   "type": "string"
                 },
                 "icp": {
@@ -217,7 +244,10 @@
                       "type": "string"
                     }
                   },
-                  "required": [],
+                  "required": [
+                    "content",
+                    "author"
+                  ],
                   "type": "object"
                 },
                 "navigation": {
@@ -243,7 +273,13 @@
                   "type": "array"
                 }
               },
-              "required": [],
+              "required": [
+                "homePage",
+                "motto",
+                "icp",
+                "background",
+                "navigation"
+              ],
               "type": "object"
             },
             "header": {
@@ -251,45 +287,18 @@
               "properties": {
                 "menu": {
                   "items": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "icon": {
-                        "type": "string"
-                      },
-                      "path": {
-                        "type": "string"
-                      },
-                      "subMenu": {
-                        "items": {
-                          "$ref": "#/definitions/interface-types_config.ts-1081-1182-types_config.ts-0-1266"
-                        },
-                        "type": "array"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "type": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "title",
-                      "path",
-                      "icon"
-                    ],
-                    "type": "object"
+                    "$ref": "#/definitions/Menu"
                   },
                   "type": "array"
                 }
               },
-              "required": [],
+              "required": [
+                "menu"
+              ],
               "type": "object"
             },
-            "logo_svg": {
-              "type": [
-                "string",
-                "null"
-              ]
+            "logoSvg": {
+              "type": "string"
             },
             "social": {
               "items": {
@@ -319,14 +328,25 @@
               "type": "array"
             }
           },
-          "required": [],
+          "required": [
+            "favicon",
+            "header",
+            "social",
+            "footer",
+            "custom",
+            "background"
+          ],
           "type": "object"
         }
       },
-      "required": [],
+      "required": [
+        "name",
+        "site",
+        "function"
+      ],
       "type": "object"
     },
-    "interface-types_config.ts-1081-1182-types_config.ts-0-1266": {
+    "Menu": {
       "additionalProperties": false,
       "properties": {
         "icon": {
@@ -337,7 +357,7 @@
         },
         "subMenu": {
           "items": {
-            "$ref": "#/definitions/interface-types_config.ts-1081-1182-types_config.ts-0-1266"
+            "$ref": "#/definitions/Menu"
           },
           "type": "array"
         },
