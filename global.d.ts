@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 // THIS FILE FOR MONACO EDITOR CODE COMPLETION
 
 declare interface FunctionContextResponse {
@@ -36,25 +34,33 @@ declare interface Context {
   readAsset: (path: string, options: any) => void
 }
 
+declare interface IDb {
+  get<T = any>(key: string): Promise<T>
+  set(key: string, value: any): Promise<void>
+  find<T = any>(condition: Record<string, any>): Promise<T[]>
+  del(key: string): Promise<void>
+  insert(key: string, value: any): Promise<void>
+  update(key: string, value: any): Promise<void>
+}
+
 declare interface IStorage {
-  db: any
+  db: IDb
   cache: {
     get(key: string): Promise<string>
     set(key: string, value: string | object): Promise<string>
-    dek(key: string): Promise<string>
+    del(key: string): Promise<string>
   }
+  dangerousAccessDbInstance: () => any
 }
 
 declare const __dirname: string
 declare const __filename: ''
 
 declare class Buffer {
-  constructor(...args: any[]): Buffer
+  constructor(...args: any[])
   from(...args: any[]): Buffer
   [x: string]: any
 }
-
-declare const console: Console
 
 declare const logger: Console
 
@@ -105,4 +111,5 @@ declare class UserModel {
 
   socialIds?: any
 }
+
 declare function require(id: string, useCache?: boolean): Promise<any>
