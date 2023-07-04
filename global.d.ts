@@ -1,5 +1,5 @@
 // THIS FILE FOR MONACO EDITOR CODE COMPLETION
-
+// TYPE DECLARATION FOR SERVERLESS FUNCTION
 declare interface FunctionContextResponse {
   throws(code: number, message: any): void
   type(type: string): FunctionContextResponse
@@ -12,11 +12,23 @@ declare interface FunctionContextRequest {
   params: Record<string, string>
 }
 
-declare interface FastifyRequest {
+declare interface FastifyRequest extends FunctionContextRequest {
+  body: any
   [k: string]: any
+}
+
+declare interface ServiceGetter {
+  getService(name: 'http'): {
+    axios: any
+    requestWithCatch: (url: string) => Promise<any>
+  }
+  getService(name: 'config'): {
+    get: (key: string) => Promise<any>
+  }
 }
 declare interface Context extends FunctionContextResponse {}
 declare interface Context extends FunctionContextRequest {}
+declare interface Context extends ServiceGetter {}
 declare interface Context {
   req: FunctionContextRequest & FastifyRequest
   res: FunctionContextResponse
@@ -32,6 +44,8 @@ declare interface Context {
 
   writeAsset: (path: string, data: any, options: any) => void
   readAsset: (path: string, options: any) => void
+
+  secret: Record<string, any>
 }
 
 declare interface IDb {
@@ -47,7 +61,7 @@ declare interface IStorage {
   db: IDb
   cache: {
     get(key: string): Promise<string>
-    set(key: string, value: string | object): Promise<string>
+    set(key: string, value: string | object, ttl?: number): Promise<string>
     del(key: string): Promise<string>
   }
   dangerousAccessDbInstance: () => any
