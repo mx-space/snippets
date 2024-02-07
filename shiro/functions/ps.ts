@@ -1,45 +1,79 @@
 export default async function handler(ctx: Context) {
-  const { timestamp, process, key, media } = ctx.req.body || {}
-
-  const [processName, mediaInfo] = await Promise.all([
-    ctx.storage.cache.get('ps'),
-    ctx.storage.cache.get('media').then((JSONString) => {
-      if (JSONString) {
-        try {
-          return JSON.parse(JSONString)
-        } catch {
-          return undefined
-        }
+  const {
+    timestamp,
+    process: processName,
+    key,
+    media,
+    meta,
+  } = ctx.req.body || {}
+  // handle GET
+  {
+    const [processInfo, mediaInfo] = await Promise.all([
+      ctx.storage.cache.get('ps') as any as Promise<Process | undefined>,
+      ctx.storage.cache.get('media') as any as Promise<Media | undefined>,
+    ])
+    if (!key) {
+      return {
+        processName: processInfo?.name,
+        processInfo,
+        mediaInfo,
       }
-    }),
-  ])
-
-  if (!key) {
-    return {
-      processName,
-      mediaInfo,
     }
+  }
+
+  const ts = +new Date()
+  // if (Math.abs(ts - timestamp) > 1000 * 10) {
+  //   ctx.throws(400, 'this request is outdate')
+  //   return
+  // }
+
+  const processInfo: Process = {
+    name: processName,
+    ...meta,
   }
 
   const validKey = (await ctx.secret.key) || 'testing'
   if (key != validKey)
     ctx.throws(401, "You haven't permission to update process info")
-  await ctx.storage.cache.set('ps', process, 60)
-  const ts = +new Date()
 
-  if (process !== processName)
-    ctx.broadcast('ps-update', {
-      process,
+  const originalPsInfo: Process | null = (await ctx.storage.cache.get(
+    'ps',
+  )) as any
+  await ctx.storage.cache.set('ps', processInfo, 300)
+
+  if (originalPsInfo?.name !== processName)
+    ctx?.broadcast?.('ps-update', {
+      processInfo,
+      process: processInfo.name,
       ts,
     })
   if (media) {
-    await ctx.storage.cache.set('media', JSON.stringify(media), 10)
-
-    if (mediaInfo.title !== media.title) ctx.broadcast('media-update', media)
+    await ctx.storage.cache.set('media', media, 10)
   }
+
+  const mediaInfo: Media | undefined = (await ctx.storage.cache.get(
+    'media',
+  )) as any
+  if (mediaInfo?.title !== media?.title)
+    ctx?.broadcast?.('media-update', media || null)
+
   return {
     ok: 1,
-    process,
+    mediaInfo,
+    process: processInfo.name,
+    processInfo,
     timestamp: +new Date(),
   }
+}
+
+interface Media {
+  title: string
+  artist: string
+}
+
+interface Process {
+  name: string
+  iconBase64?: string
+  iconUrl?: string
+  description?: string
 }

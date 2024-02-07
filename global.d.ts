@@ -46,6 +46,8 @@ declare interface Context {
   readAsset: (path: string, options: any) => void
 
   secret: Record<string, any>
+
+  broadcast: (event: string, data: any) => void
 }
 
 declare interface IDb {
