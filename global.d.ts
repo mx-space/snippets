@@ -33,7 +33,7 @@ declare interface Context extends ServiceGetter {}
 declare interface Context {
   req: FunctionContextRequest & FastifyRequest
   res: FunctionContextResponse
-
+  isAuthenticated: boolean
   model: SnippetModel
   document: SnippetModel & { [key: string]: any }
   getMaster: () => Promise<UserModel>
