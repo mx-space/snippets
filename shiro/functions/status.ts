@@ -52,7 +52,7 @@ function POST(ctx: Context) {
     icon,
     desc,
     ttl,
-    untilAt: Date.now() + ttl,
+    untilAt: Date.now() + ttl * 1000,
   } as Status
   ctx.storage.cache.set(cacheKey, JSON.stringify(status), ttl)
   ctx.status(204)
