@@ -10,6 +10,7 @@ declare interface FunctionContextRequest {
   query: Record<string, string>
   headers: Record<string, string>
   params: Record<string, string>
+  method: string
 }
 
 declare interface FastifyRequest extends FunctionContextRequest {
