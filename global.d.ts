@@ -63,7 +63,7 @@ declare interface IDb {
 declare interface IStorage {
   db: IDb
   cache: {
-    get(key: string): Promise<string>
+    get<T>(key: string): Promise<T>
     set(key: string, value: string | object, ttl?: number): Promise<string>
     del(key: string): Promise<string>
   }
