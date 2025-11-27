@@ -57,23 +57,25 @@ async function POST(ctx: Context) {
 
   const ts = +new Date()
 
-  const psInfo = ctx.req.body.process as Process
-  const mediaInfo = ctx.req.body.media as Media
+  const psInfo = ctx.req.body?.process as Process
+  const mediaInfo = ctx.req.body?.media as Media
 
-  if (psInfo?.name !== cachedProcessInfo?.name)
-    ctx?.broadcast?.('ps-update', {
-      processInfo: psInfo,
-      process: psInfo.name,
-      ts,
-    })
+  if (psInfo || mediaInfo) {
+    if (psInfo?.name !== cachedProcessInfo?.name)
+      ctx?.broadcast?.('ps-update', {
+        processInfo: psInfo,
+        process: psInfo?.name,
+        ts,
+      })
 
-  if (cachedMediaInfo?.title !== mediaInfo?.title)
-    ctx?.broadcast?.('media-update', mediaInfo || null)
+    if (cachedMediaInfo?.title !== mediaInfo?.title)
+      ctx?.broadcast?.('media-update', mediaInfo || null)
 
-  if (mediaInfo) {
-    await ctx.storage.cache.set('media', mediaInfo, 10)
+    if (mediaInfo) {
+      await ctx.storage.cache.set('media', mediaInfo, 10)
+    }
+    await ctx.storage.cache.set('ps', psInfo, 300)
   }
-  await ctx.storage.cache.set('ps', psInfo, 300)
 
   return {
     ok: 1,
