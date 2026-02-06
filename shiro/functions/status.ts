@@ -29,6 +29,9 @@ export default async function handler(ctx: Context) {
       assetAuth(ctx)
       return DELETE(ctx)
     }
+    case 'options': {
+      return OPTIONS()
+    }
     default: {
       ctx.throws(405, 'Method Not Allowed')
     }
@@ -62,6 +65,10 @@ function POST(ctx: Context) {
 
 function GET(ctx: Context) {
   const status = ctx.storage.cache.get(cacheKey)
-  ctx.res.type('application/json')
+
   return status
+}
+
+function OPTIONS() {
+  
 }
